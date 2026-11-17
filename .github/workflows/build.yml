@@ -10,7 +10,7 @@ jobs:
       - name: Unzip project
         run: |
           mkdir proj
-          unzip -q *.zip -d proj
+          unzip -q "$(find . -name 'DeutschLernen.zip' | head -1)" -d proj
           D=$(dirname "$(find proj -name settings.gradle.kts | head -1)")
           echo "PROJ=$D" >> $GITHUB_ENV
       - uses: actions/setup-java@v4
